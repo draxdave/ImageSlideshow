@@ -127,6 +127,10 @@ class ImageSlider @JvmOverloads constructor(context: Context, attrs: AttributeSe
     fun setItemClickListener(itemClickListener: ItemClickListener) {
         viewPagerAdapter?.setItemClickListener(itemClickListener)
     }
+        
+    fun getCurrentPage():int{
+    return currentPage
+    }
 
 }
 
