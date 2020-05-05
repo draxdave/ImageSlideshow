@@ -41,6 +41,7 @@ class ViewPagerAdapter(context: Context?, imageList: List<SlideModel>, private v
 
         if (imageList!![position].title != null){
             textView.text = imageList!![position].title
+            textView.gravity = imageList!![position].gravity
         }else{
             linearLayout.visibility = View.INVISIBLE
         }

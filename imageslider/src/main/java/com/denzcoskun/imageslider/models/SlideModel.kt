@@ -1,5 +1,8 @@
 package com.denzcoskun.imageslider.models
 
+import android.view.Gravity
+import android.view.View
+
 /**
  * Created by 34158 on 22.03.2019.
  */
@@ -9,6 +12,7 @@ class SlideModel {
     var imagePath: Int? = 0
     var title: String? = null
     var centerCrop = false
+    var gravity = Gravity.CENTER
 
     constructor (imageUrl: String) {
         this.imageUrl = imageUrl
@@ -49,5 +53,14 @@ class SlideModel {
         this.title = title
         this.centerCrop = centerCrop
     }
+
+
+    constructor (imageUrl: String, title: String?, centerCrop: Boolean, textGravity: Int) {
+        this.imageUrl = imageUrl
+        this.title = title
+        this.gravity = textGravity
+        this.centerCrop = centerCrop
+    }
+
 
 }
