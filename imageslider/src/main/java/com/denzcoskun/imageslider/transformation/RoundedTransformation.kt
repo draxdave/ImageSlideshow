@@ -1,7 +1,8 @@
 package com.denzcoskun.imageslider.transformation
 
 import android.graphics.*
-import com.squareup.picasso.Transformation
+import com.bumptech.glide.load.Transformation
+/*
 
 class RoundedTransformation @JvmOverloads constructor(radius:Int, margin:Int, cornerType:CornerType = CornerType.ALL):
     Transformation {
@@ -152,4 +153,4 @@ class RoundedTransformation @JvmOverloads constructor(radius:Int, margin:Int, co
         return ("RoundedTransformation(radius=" + mRadius + ", margin=" + mMargin + ", diameter="
                 + mDiameter + ", cornerType=" + mCornerType.name + ")")
     }
-}
+}*/

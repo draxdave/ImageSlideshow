@@ -5,15 +5,17 @@ import android.support.v4.view.PagerAdapter
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.view.animation.Transformation
 import android.widget.ImageView
 import android.widget.LinearLayout
 import android.widget.RelativeLayout
 import android.widget.TextView
+import com.bumptech.glide.Glide
+import com.bumptech.glide.load.engine.DiskCacheStrategy
 import com.denzcoskun.imageslider.R
 import com.denzcoskun.imageslider.interfaces.ItemClickListener
 import com.denzcoskun.imageslider.models.SlideModel
 import com.denzcoskun.imageslider.transformation.RoundedTransformation
-import com.squareup.picasso.Picasso
 
 
 class ViewPagerAdapter(context: Context?, imageList: List<SlideModel>, private var radius: Int, private var errorImage: Int, private var placeholder: Int, private var centerCrop: Boolean?) : PagerAdapter() {
@@ -48,41 +50,45 @@ class ViewPagerAdapter(context: Context?, imageList: List<SlideModel>, private v
 
         if(imageList!![position].imageUrl == null){
             if(centerCrop!! || imageList!![position].centerCrop){
-                Picasso.get()
-                    .load(imageList!![position].imagePath!!) // Int
-                    .fit()
+                Glide.with(imageView)
+                    .load(imageList!![position].imagePath!!)
+                    .diskCacheStrategy(DiskCacheStrategy.ALL)
+                    .placeholder(placeholder)
+                    .error(errorImage)
                     .centerCrop()
-                    .transform(RoundedTransformation(radius,0))
-                    .placeholder(placeholder)
-                    .error(errorImage)
+                    .fitCenter()
                     .into(imageView)
+
             }else {
-                Picasso.get()
-                    .load(imageList!![position].imagePath!!) // Int
-                    .fit()
-                    .transform(RoundedTransformation(radius, 0))
+
+                Glide.with(imageView)
+                    .load(imageList!![position].imagePath!!)
+                    .diskCacheStrategy(DiskCacheStrategy.ALL)
                     .placeholder(placeholder)
                     .error(errorImage)
+                    .fitCenter()
                     .into(imageView)
             }
         }else{
             if(centerCrop!! || imageList!![position].centerCrop) {
-                Picasso.get()
-                    .load(imageList!![position].imageUrl!!) // String
-                    .fit()
+                Glide.with(imageView)
+                    .load(imageList!![position].imageUrl)
+                    .diskCacheStrategy(DiskCacheStrategy.ALL)
+                    .placeholder(placeholder)
+                    .error(errorImage)
                     .centerCrop()
-                    .transform(RoundedTransformation(radius, 0))
-                    .placeholder(placeholder)
-                    .error(errorImage)
+                    .fitCenter()
                     .into(imageView)
+
             }else {
-                Picasso.get()
-                    .load(imageList!![position].imageUrl!!) // String
-                    .fit()
-                    .transform(RoundedTransformation(radius, 0))
+                Glide.with(imageView)
+                    .load(imageList!![position].imageUrl)
+                    .diskCacheStrategy(DiskCacheStrategy.ALL)
                     .placeholder(placeholder)
                     .error(errorImage)
+                    .fitCenter()
                     .into(imageView)
+
             }
         }
 
