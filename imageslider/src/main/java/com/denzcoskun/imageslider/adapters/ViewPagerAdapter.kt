@@ -55,7 +55,6 @@ class ViewPagerAdapter(context: Context?, imageList: List<SlideModel>, private v
                     .placeholder(placeholder)
                     .error(errorImage)
                     .centerCrop()
-                    .fitCenter()
                     .into(imageView)
 
             }else {
@@ -76,7 +75,6 @@ class ViewPagerAdapter(context: Context?, imageList: List<SlideModel>, private v
                     .placeholder(placeholder)
                     .error(errorImage)
                     .centerCrop()
-                    .fitCenter()
                     .into(imageView)
 
             }else {
