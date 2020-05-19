@@ -41,6 +41,7 @@ class ImageSlider @JvmOverloads constructor(context: Context, attrs: AttributeSe
     init {
         LayoutInflater.from(getContext()).inflate(R.layout.image_slider, this, true)
         viewPager = findViewById(R.id.view_pager)
+        viewPager.setOffscreenPageLimit(10)
         pagerDots = findViewById(R.id.pager_dots)
 
         val typedArray = context.theme.obtainStyledAttributes(attrs, R.styleable.ImageSlider, defStyleAttr, defStyleAttr)
